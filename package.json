@@ -1,0 +1,46 @@
+{
+  "name": "electron-app",
+  "productName": "electron-app",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start -- --trace-warnings",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "config": {
+    "forge": "./forge.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sasso0101/Tally.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "sasso0101",
+    "email": "salvatore.andaloro01@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@electron-forge/publisher-github": "^6.0.0-beta.60",
+    "@homebridge/ciao": "^1.1.2",
+    "atem-connection": "^2.3.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "eventemitter3": "^4.0.7",
+    "op-i18n": "^1.0.1101",
+    "serialport": "^9.2.1",
+    "update-electron-app": "^2.0.1",
+    "usb-detection": "^4.10.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.60",
+    "@electron-forge/maker-deb": "^6.0.0-beta.60",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.60",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.60",
+    "@electron-forge/maker-zip": "^6.0.0-beta.60",
+    "electron": "14.0.0"
+  }
+}

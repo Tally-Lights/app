@@ -1,0 +1,1 @@
+node -i -e "const { Atem } = require('atem-connection');var atem = new Atem();atem.connect('192.168.1.109');"

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Tally lights</title>
+</head>
+<body>
+    <h1 translate="TallyLights"></h1>
+    <div id="gridContainer">
+        <section>
+            <div id="switcherSelectionContainer">
+                <h3 translate="SwitcherSelection"></h3>
+                <div name="switcherSelection" id="switcherSelection"></div>
+                <template id="switcherTemplate">
+                    <button class="switcher" switcherFolderName="switcherFolderName">
+                        <div class="switcherSelectionIconContainer">
+                            <img src="" alt="Switcher icon" class="switcherSelectionIcon">
+                        </div>
+                        <p class="switcherFriendlyName">Switcher friendly name</p>
+                    </button>
+                </template>
+            </div>
+
+            <div id="switcherConfigurationContainer">
+                <button id="backToSelection" translate="Back"></button>
+                <h3 translate="SwitcherConfiguration"></h3>
+                <div id="switcherConfiguration">
+                    <img src="" alt="Switcher icon" id="selectedSwitcherIcon">
+                    <div>
+                        <label for="ipAddress" translate="IPAddress"></label>
+                        <input type="text" name="ipAddress" id="ipAddress" value="192.168.1.109" required><br>
+                    </div>
+                    <button id="connectToSwitcher" translate="Connect"></button>
+                    <p id="switcherStatus" translate="NotConnected"></p>
+                    <div id="switcherInputs"></div>
+                    <template id="switcherSourceTemplate">
+                        <div class="switcherSource"><span class="sourceID"></span>: <span class="sourceName"></span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="tallyConfiguration">
+                <h3 translate="TallyConfiguration"></h3>
+                <div id="tallyConfigurationInputContainer">
+                    <label for="wifiSSID" translate="WiFiName"></label>
+                    <input type="text" id="wifiSSID" translate="YourWiFiName" translateProperty="placeholder">
+                    <label for="wifiPassword" translate="WiFiPassword"></label>
+                    <input type="text" id="wifiPassword" translate="YourWiFiPassword" translateProperty="placeholder">
+                </div>
+                <div id="tallyConnectionUsb">
+                    <div id="tallyCounterUsb">
+                        <span translate="ConnectedTalliesUSB"></span>
+                        <span id="connectedTalliesCounterUsb">0</span>
+                    </div>
+                    <button id="updateTallyConfiguration" translate="UpdateTallyWiFi"></button>
+                    <div id="tallyConnectionGuide" translate="ConnectGuide"></div>
+                </div>
+            </div>
+            <div id="connectedTalliesContainer">
+                <hr id="sectionDivider">
+                <h3 translate="ConnectedTallies"></h3>
+                <div id="connectedTallies">
+
+                </div>
+                <template id="tallyTemplate">
+                    <div class="tally">
+                        <div class="cameraNumber">?</div>
+                        <div class="tallyInfo">
+                            <div class="batteryContainer">
+                                <div class="batteryIconContainer">
+                                    <img src="static/img/charging.png" alt="Charging" class="charging">
+                                    <div class="batteryOuter"><div class="batteryLevel"></div></div>
+                                    <div class="batteryBump"></div>
+                                </div>
+                                <div class="tallyBattery"><span class="batteryPercentage">100</span>%</div>
+                            </div>
+                            <div class="wifiContainer">
+                                <img src="static/img/wifi.png" alt="Wifi" id="wifiIcon">
+                                <div class="tallyWiFiStrength" translate="Good"></div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="static/js/switchers.js"></script>
+<script src="static/js/tallyConfiguration.js"></script>
+<script src="static/js/tallyServer.js"></script>
+<script src="static/js/initializer.js"></script>
+
+</html>
