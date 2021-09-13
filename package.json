@@ -1,6 +1,6 @@
 {
   "name": "tally-lights",
-  "productName": "Tally lights",
+  "productName": "tally-lights",
   "version": "1.0.0",
   "description": "Cheap tally solution",
   "main": "src/index.js",
