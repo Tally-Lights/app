@@ -9,8 +9,8 @@ var Switcher = undefined; // Switcher require
 var switcher = undefined; // Switcher object
 var switcherConnected = false;
 var tallyConfiguration;
-var tallyServer;
 var translation;
+var tallyServer;
 
 // Attempt auto update
 require('update-electron-app')();
