@@ -6,8 +6,8 @@ module.exports = {
       "name": "@electron-forge/publisher-github",
       "config": {
         "repository": {
-          "owner": "Sasso0101",
-          "name": "Tally"
+          "owner": "Tally-lights",
+          "name": "app"
         },
         "prerelease": true,
         "authToken": token

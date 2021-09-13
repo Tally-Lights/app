@@ -1,8 +1,8 @@
 {
-  "name": "electron-app",
-  "productName": "electron-app",
+  "name": "tally-lights",
+  "productName": "Tally lights",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start -- --trace-warnings",
@@ -16,13 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sasso0101/Tally.git"
+    "url": "https://github.com/Tally-lights/app.git"
   },
   "keywords": [],
   "author": {
-    "name": "sasso0101",
-    "email": "salvatore.andaloro01@gmail.com"
+    "name": "sasso0101"
   },
+  "contributors": [{
+    "name": "capsia37"
+  }],
   "license": "MIT",
   "dependencies": {
     "@electron-forge/publisher-github": "^6.0.0-beta.60",
