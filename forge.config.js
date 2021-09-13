@@ -1,3 +1,5 @@
+const token = process.env.SECRET_DEPLOY_TOKEN !== undefined ? process.env.SECRET_DEPLOY_TOKEN : "";
+
 module.exports = {
   publishers: [
     {
@@ -7,7 +9,8 @@ module.exports = {
           "owner": "Tally-lights",
           "name": "app"
         },
-        "prerelease": true
+        "prerelease": true,
+        "authToken": token
       }
     }
   ],
