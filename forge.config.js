@@ -19,7 +19,7 @@ module.exports = {
       "name": "@electron-forge/maker-squirrel",
       "config": {
         "name": "tally-lights",
-        "setupIcon": "./src/static/icons/512x512.png",
+        "setupIcon": "./src/static/icons/512x512.ico",
         "title": "Tally lights"
       }
     },
