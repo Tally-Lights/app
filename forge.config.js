@@ -18,21 +18,17 @@ module.exports = {
     {
       "name": "@electron-forge/maker-squirrel",
       "config": {
-        "name": "Tally lights"
+        "name": "tally-lights"
       }
     },
     {
-      "name": "@electron-forge/maker-zip",
-      "platforms": [
-        "darwin"
-      ]
+      "name": "@electron-forge/maker-dmg",
+      "config": {
+        "icon": "./src/static/icons/512x512.png"
+      }
     },
     {
       "name": "@electron-forge/maker-deb",
-      "config": {}
-    },
-    {
-      "name": "@electron-forge/maker-rpm",
       "config": {}
     }
   ],
