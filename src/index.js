@@ -80,7 +80,7 @@ const createWindow = () => {
     tallyServer.open();
   });
   if (!app.isPackaged) {
-    // Open the DevTools.
+    // Open the DevTools
     mainWindow.webContents.openDevTools();
   }
 };
