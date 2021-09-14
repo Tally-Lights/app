@@ -20,5 +20,6 @@
     "Connecting": "Connecting...",
     "Weak": "Weak",
     "Good": "Good",
-    "ConnectionFailed": "Connection to switcher failed. Check the IP address of the switcher and the network cable."
+    "ConnectionFailed": "Connection to switcher failed. Check the IP address of the switcher and the network cable.",
+    "UpdateAvailable": "🎉 An update is available! The app will automatically update itself at it's closure. The update process will require less than a minute."
 }

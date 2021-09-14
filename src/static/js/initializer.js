@@ -9,6 +9,11 @@ document.querySelectorAll("[translate]").forEach((element) => {
         element[property] = (result != undefined) ? result : element.getAttribute("translate");
     });
 });
+
 function translate(text) {
     return ipcRenderer.invoke("getTranslation", text);
 }
+
+ipcRenderer.on("updateAvailable", async (event) => {
+  translate("UpdateAvailable").then((result) => alert(result));
+});

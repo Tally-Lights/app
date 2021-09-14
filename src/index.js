@@ -4,6 +4,7 @@ const path = require('path');
 const TallyConfiguration = require('./modules/TallyConfiguration.js');
 const TallyServer = require('./modules/TallyServer.js');
 const Translations = require('./modules/Translations.js');
+import { autoUpdater } from "electron-updater";
 
 var Switcher = undefined; // Switcher require
 var switcher = undefined; // Switcher object
@@ -78,11 +79,18 @@ const createWindow = () => {
       mainWindow.webContents.send("tallyDisconnected", tallyDetails);
     });
     tallyServer.open();
+
+    autoUpdater.checkForUpdates().then(() => {
+      autoUpdater.downloadUpdate().then(() => {
+        mainWindow.webContents.send("updateAvailable");
+      });
+    });
   });
-  //if (!app.isPackaged) {
+
+  if (!app.isPackaged) {
     // Open the DevTools
-    //mainWindow.webContents.openDevTools();
-  //}
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 // This method will be called when Electron has finished
