@@ -1,7 +1,7 @@
 {
   "name": "tally-lights",
   "productName": "tally-lights",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
@@ -20,7 +20,10 @@
       "provider": "github",
       "owner": "tally-lights",
       "repo": "app"
-    }]
+    }],
+    "linux": {
+      "target": "deb"
+    }
   },
   "repository": {
     "type": "git",
