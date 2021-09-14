@@ -21,5 +21,7 @@
     "Weak": "Debole",
     "Good": "Buona",
     "ConnectionFailed": "Connessione allo switcher non riuscita. Controlla l'indirizzo IP dello switcher e che il cavo di rete sia collegato.",
-    "UpdateAvailable": "🎉 Aggiornamento dell'app disponibile! L'app si aggiornerà automaticamente alla chiusura. L'aggirnamento richiederà meno di un minuto."
+    "UpdateAvailable": "🎉 Aggiornamento dell'app disponibile! L'app si aggiornerà automaticamente alla chiusura. L'aggirnamento richiederà meno di un minuto.",
+    "MultipleInstancesError": "È consentita solo una finestra aperta dello stesso programma!",
+    "Error": "Errore"
 }

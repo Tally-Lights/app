@@ -6,9 +6,12 @@ class Translations {
     i18n;
     constructor(options) {
         this.i18n = new I18n(options);
-        ipcMain.handle('getTranslation', async (event, translation) => {
-            return this.i18n.$t(translation);
+        ipcMain.handle('getTranslation', async (event, text) => {
+            return this.translate(text);
         });
+    }
+    translate(text) {
+        return this.i18n.$t(text);
     }
 }
 
