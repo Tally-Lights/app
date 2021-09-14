@@ -1,7 +1,7 @@
 {
   "name": "tally-lights",
   "productName": "tally-lights",
-  "version": "1.0.5",
+  "version": "v1.0.6",
   "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
@@ -31,7 +31,8 @@
   },
   "keywords": [],
   "author": {
-    "name": "sasso0101"
+    "name": "sasso0101",
+    "email": "sasso0101@gmail.com"
   },
   "contributors": [
     {
