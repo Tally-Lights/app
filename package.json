@@ -1,7 +1,7 @@
 {
   "name": "tally-lights",
   "productName": "tally-lights",
-  "version": "v1.0.7",
+  "version": "v1.0.8",
   "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
@@ -14,16 +14,30 @@
     "appId": "tallylights",
     "productName": "Tally lights",
     "mac": {
-      "category": "your.app.category.type"
+      "category": "public.app-category.productivity"
     },
-    "publish": [{
-      "provider": "github",
-      "owner": "tally-lights",
-      "repo": "app"
-    }],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "tally-lights",
+        "repo": "app"
+      }
+    ],
     "linux": {
       "target": "deb"
-    }
+    },
+    "asarUnpack": [
+      "node_modules/threadedclass",
+      "node_modules/tslib",
+      "node_modules/eventemitter3",
+      "node_modules/is-running",
+      "node_modules/callsites",
+      "node_modules/atem-connection",
+      "node_modules/big-integer",
+      "node_modules/exit-hook",
+      "node_modules/nanotimer",
+      "node_modules/wavefile"
+    ]
   },
   "repository": {
     "type": "git",
@@ -31,7 +45,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "sasso0101",
+    "name": "Salvatore Andaloro",
     "email": "sasso0101@gmail.com"
   },
   "contributors": [
@@ -43,15 +57,14 @@
   "dependencies": {
     "@homebridge/ciao": "^1.1.2",
     "atem-connection": "^2.3.0",
-    "electron-squirrel-startup": "^1.0.0",
     "eventemitter3": "^4.0.7",
+    "hazardous": "^0.3.0",
     "op-i18n": "^1.0.1101",
     "serialport": "^9.2.1",
-    "update-electron-app": "^2.0.1",
     "usb-detection": "^4.10.0"
   },
   "devDependencies": {
-    "electron": "14.0.0",
+    "electron": "13.0.0",
     "electron-builder": "^22.11.7",
     "electron-rebuild": "^3.2.3"
   }

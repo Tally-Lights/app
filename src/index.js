@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+require ('hazardous');
 const path = require('path');
-const { disconnect } = require('process');
-const TallyConfiguration = require('./modules/tallyConfiguration.js');
+const TallyConfiguration = require('./modules/TallyConfiguration.js');
 const TallyServer = require('./modules/TallyServer.js');
 const Translations = require('./modules/Translations.js');
 
@@ -79,10 +79,10 @@ const createWindow = () => {
     });
     tallyServer.open();
   });
-  if (!app.isPackaged) {
+  //if (!app.isPackaged) {
     // Open the DevTools
-    mainWindow.webContents.openDevTools();
-  }
+    //mainWindow.webContents.openDevTools();
+  //}
 };
 
 // This method will be called when Electron has finished
