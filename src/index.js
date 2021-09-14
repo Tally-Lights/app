@@ -54,6 +54,10 @@ else {
       icon: path.resolve(__dirname, 'static/icons/512x512.png')
     });
 
+    if (app.isPackaged) {
+      mainWindow.removeMenu();
+    }
+
     // and load the index.html of the app.
     mainWindow.loadFile(path.join(__dirname, 'index.html')).then(() => {
       tallyConfiguration = new TallyConfiguration();

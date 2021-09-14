@@ -1,7 +1,7 @@
 {
   "name": "tally-lights",
   "productName": "tally-lights",
-  "version": "v1.0.12",
+  "version": "v1.0.13",
   "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
