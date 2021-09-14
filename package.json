@@ -1,18 +1,26 @@
 {
   "name": "tally-lights",
   "productName": "tally-lights",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron-forge start -- --trace-warnings",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "config": {
-    "forge": "./forge.config.js"
+  "build": {
+    "appId": "tallylights",
+    "productName": "Tally lights",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "publish": [{
+      "provider": "github",
+      "owner": "tally-lights",
+      "repo": "app"
+    }]
   },
   "repository": {
     "type": "git",
@@ -29,7 +37,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@electron-forge/publisher-github": "^6.0.0-beta.60",
     "@homebridge/ciao": "^1.1.2",
     "atem-connection": "^2.3.0",
     "electron-squirrel-startup": "^1.0.0",
@@ -40,10 +47,8 @@
     "usb-detection": "^4.10.0"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.60",
-    "@electron-forge/maker-deb": "^6.0.0-beta.60",
-    "@electron-forge/maker-dmg": "^6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.60",
-    "electron": "14.0.0"
+    "electron": "14.0.0",
+    "electron-builder": "^22.11.7",
+    "electron-rebuild": "^3.2.3"
   }
 }
