@@ -2,18 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 populateSwitcherList(); // Populate switcher selection
-
-document.querySelectorAll("[translate]").forEach((element) => {
-    var property = element.hasAttribute("translateProperty") ? element.getAttribute("translateProperty") : "innerText";
-    ipcRenderer.invoke("getTranslation", element.getAttribute("translate")).then((result) => {
-        element[property] = (result != undefined) ? result : element.getAttribute("translate");
-    });
-});
-
-function translate(text) {
-    return ipcRenderer.invoke("getTranslation", text);
-}
+populateLanguages(); // Populate language switcher
+localizeHTML(); // Translate whole page
 
 ipcRenderer.on("updateAvailable", async (event) => {
   translate("UpdateAvailable").then((result) => alert(result));
+});
+ipcRenderer.on("version", async (event, version) => {
+  document.querySelector("#version").innerHTML = version;
 });

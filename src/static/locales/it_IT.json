@@ -13,7 +13,7 @@
     "YourWiFiName": "Nome rete WiFi",
     "WiFiPassword": "Password WiFi: ",
     "YourWiFiPassword": "Password WiFi",
-    "ConnectGuide": "I tally non si collegano al WiFi? Collegali tramite USB al computer, inserisci i dettagli della rete WiFi qui sopra e premi il pulsante \"Aggiorna WiFi\".",
+    "ConnectGuide": "Hai cambiato rete WiFi? Collega i tally tramite USB al computer, inserisci i dettagli della nuova rete WiFi qui sopra e premi il pulsante \"Aggiorna WiFi\".",
     "ConnectedTalliesUSB": "Tally connessi tramite USB: ",
     "UpdateTallyWiFi": "Aggiorna WiFi",
     "ConnectedTallies": "Tally connessi",
@@ -21,7 +21,9 @@
     "Weak": "Debole",
     "Good": "Buona",
     "ConnectionFailed": "Connessione allo switcher non riuscita. Controlla l'indirizzo IP dello switcher e che il cavo di rete sia collegato.",
-    "UpdateAvailable": "🎉 Aggiornamento dell'app disponibile! L'app si aggiornerà automaticamente alla chiusura. L'aggirnamento richiederà meno di un minuto.",
+    "UpdateReady": "Aggiornamento disponibile! L'app si aggiornerà automaticamente alla chiusura.",
     "MultipleInstancesError": "È consentita solo una finestra aperta dello stesso programma!",
+    "KeepProgramOpen": "Non mettere in stop/spegnere il computer durante la diretta",
+    "Language": "Lingua:",
     "Error": "Errore"
 }

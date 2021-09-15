@@ -60,6 +60,8 @@ else {
 
     // and load the index.html of the app.
     mainWindow.loadFile(path.join(__dirname, 'index.html')).then(() => {
+      mainWindow.webContents.send("version", app.getVersion());
+
       tallyConfiguration = new TallyConfiguration();
       tallyConfiguration.on("tallyConfigurationCounterUpdate", (connectedTallyCounter) => {
         mainWindow.webContents.send("tallyConfigurationCounterUpdate", connectedTallyCounter);
@@ -90,10 +92,8 @@ else {
       tallyServer.open();
 
       if (app.isPackaged) {
-        autoUpdater.on('update-available', () => {
-          autoUpdater.downloadUpdate().then(() => {
-            mainWindow.webContents.send("updateAvailable");
-          });
+        autoUpdater.on('update-downloaded', () => {
+          mainWindow.webContents.send("updateReady");
         });
         autoUpdater.checkForUpdates();
       }

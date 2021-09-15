@@ -58,7 +58,7 @@ ipcRenderer.on("switcherDisconnected", async (event) => {
 
 /** Connect button clicked */
 function connect() {
-  translate("Connecting").then((result) => document.querySelector("#switcherStatus").innerHTML = result);
+  translateElement(document.querySelector("#switcherStatus"), "Connecting");
   document.querySelector("#ipAddress").disabled = true;
   document.querySelector("#connectToSwitcher").disabled = true;
   document.querySelector("#connectToSwitcher").removeEventListener("click", connect);
@@ -75,8 +75,8 @@ function disconnect() {
 }
 /** Executes once the switcher is connected */
 function switcherConnected() {
-  translate("Connected").then((result) => document.querySelector("#switcherStatus").innerHTML = result);
-  translate("Disconnect").then((result) => document.querySelector("#connectToSwitcher").innerHTML = result);
+  translateElement(document.querySelector("#switcherStatus"), "Connected");
+  translateElement(document.querySelector("#connectToSwitcher"), "Disconnect");
   document.querySelector("#connectToSwitcher").disabled = false;
   document.querySelector("#connectToSwitcher").addEventListener("click", disconnect);
 }
@@ -98,11 +98,11 @@ function switcherTimeout() {
 }
 /** Gets called by the main process once the switcher is acutally disconnected */
 function switcherDisconnected() {
-  translate("NotConnected").then((result) => document.querySelector("#switcherStatus").innerHTML = result);
+  translateElement(document.querySelector("#switcherStatus"), "NotConnected");
   document.querySelector("#switcherInputs").innerHTML = "";
   document.querySelector("#connectToSwitcher").disabled = false;
   document.querySelector("#ipAddress").disabled = false;
-  translate("Connect").then((result) => document.querySelector("#connectToSwitcher").innerHTML = result);
+  translateElement(document.querySelector("#connectToSwitcher"), "Connect");
   document.querySelector("#connectToSwitcher").removeEventListener("click", disconnect);
   document.querySelector("#connectToSwitcher").addEventListener("click", connect);
 }
