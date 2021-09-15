@@ -53,10 +53,10 @@ function updateTallyTelemetry(tally, tallyTelemetry, livePreviewSources) {
     tally.querySelector(".batteryLevel").style.width = (0 + (25 - 0) * (parseInt(tallyTelemetry["batteryPercentage"],10) - 0) / (100 - 0)).toString() + "px";
     switch (parseInt(tallyTelemetry["wifiStrength"], 10)) {
         case 1:
-            translateElement(document.querySelector(".tallyWiFiStrength"), "Weak");
+            translateElement(tally.querySelector(".tallyWiFiStrength"), "Weak");
             break;
         case 2:
-            translateElement(document.querySelector(".tallyWiFiStrength"), "Good");
+            translateElement(tally.querySelector(".tallyWiFiStrength"), "Good");
             break;
     }
 }
