@@ -25,5 +25,9 @@
     "MultipleInstancesError": "È consentita solo una finestra aperta dello stesso programma!",
     "KeepProgramOpen": "Non mettere in stop/spegnere il computer durante la diretta",
     "Language": "Lingua:",
-    "Error": "Errore"
+    "Error": "Errore",
+    "Close": "Chiudi",
+    "KeepOpen": "Tieni aperto",
+    "ConfirmCloseTitle": "Conferma chiusura",
+    "ConfirmClose": "La diretta è ancora attiva, vuoi davvero chiudere l'applicazione?"
 }

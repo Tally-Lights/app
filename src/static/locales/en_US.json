@@ -25,5 +25,9 @@
     "MultipleInstancesError": "Only one instance of the same program is allowed!",
     "KeepProgramOpen": "Don't stop/shutdown the computer during a live stream",
     "Language": "Language:",
-    "Error": "Error"
+    "Error": "Error",
+    "Close": "Close",
+    "KeepOpen": "Keep open",
+    "ConfirmCloseTitle": "Confirm exit",
+    "ConfirmClose": "Live broadcasting is still active, do you want to close this application?"
 }
