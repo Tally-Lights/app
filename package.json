@@ -1,7 +1,7 @@
 {
   "name": "tally-lights",
   "productName": "tally-lights",
-  "version": "v1.0.14",
+  "version": "v1.0.15",
   "description": "Cheap tally solution",
   "main": "src/index.js",
   "scripts": {
@@ -15,6 +15,15 @@
     "productName": "Tally lights",
     "mac": {
       "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "artifactName": "${productName}.${ext}"
+    },
+    "nsis": {
+      "artifactName": "${productName} Setup.${ext}"
+    },
+    "deb": {
+      "artifactName": "${productName}.${ext}"
     },
     "publish": [
       {
