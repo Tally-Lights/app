@@ -6,8 +6,8 @@
     "IPAddress": "Indirizzo IP: ",
     "Connect": "Connetti",
     "Disconnect": "Disconnetti",
-    "Connected": "Connesso",
-    "NotConnected": "Non connesso",
+    "Connected": "Stato: connesso",
+    "NotConnected": "Stato: non connesso",
     "TallyConfiguration": "Configurazione tally",
     "WiFiName": "Nome rete WiFi: ",
     "YourWiFiName": "Nome rete WiFi",
@@ -25,5 +25,6 @@
     "MultipleInstancesError": "È consentita solo una finestra aperta dello stesso programma!",
     "KeepProgramOpen": "Non mettere in stop/spegnere il computer durante la diretta",
     "Language": "Lingua:",
-    "Error": "Errore"
+    "Error": "Errore",
+    "FoundNetworkSwitchers": "Switcher trovati in rete:"
 }

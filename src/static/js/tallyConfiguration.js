@@ -1,7 +1,7 @@
 ipcRenderer.on("tallyConfigurationCounterUpdate", async (event, number) => {
     tallyConfigurationCounterUpdate(number);
 });
-ipcRenderer.on("tallyConfigurationWriteSuccessfull", async (event, number) => {
+ipcRenderer.on("tallyConfigurationWriteSuccessfull", async (event) => {
     console.log("Write successfull");
 });
 

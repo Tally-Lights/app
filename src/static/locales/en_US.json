@@ -6,8 +6,8 @@
     "IPAddress": "IP address: ",
     "Connect": "Connect",
     "Disconnect": "Disconnect",
-    "Connected": "Connected",
-    "NotConnected": "Not connected",
+    "Connected": "Status: connected",
+    "NotConnected": "Status: not connected",
     "TallyConfiguration": "Tally configuration",
     "WiFiName": "WiFi name: ",
     "YourWiFiName": "WiFi name",
@@ -25,5 +25,6 @@
     "MultipleInstancesError": "Only one instance of the same program is allowed!",
     "KeepProgramOpen": "Don't stop/shutdown the computer during a live stream",
     "Language": "Language:",
-    "Error": "Error"
+    "Error": "Error",
+    "FoundNetworkSwitchers": "Network switchers found:"
 }

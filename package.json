@@ -66,9 +66,11 @@
   "dependencies": {
     "@homebridge/ciao": "^1.1.2",
     "atem-connection": "^2.3.0",
+    "dns-packet": "^5.3.0",
     "electron-updater": "^4.3.9",
     "eventemitter3": "^4.0.7",
     "hazardous": "^0.3.0",
+    "multicast-dns": "^7.2.3",
     "op-i18n": "^1.0.1101",
     "serialport": "^9.2.1",
     "usb-detection": "^4.10.0"

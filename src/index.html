@@ -29,9 +29,18 @@
                 <h3 translate="SwitcherConfiguration"></h3>
                 <div id="switcherConfiguration">
                     <img src="" alt="Switcher icon" id="selectedSwitcherIcon">
-                    <div>
-                        <label for="ipAddress" translate="IPAddress"></label>
-                        <input type="text" name="ipAddress" id="ipAddress" placeholder="192.168.1.100" required><br>
+                    <div id="configurationContainer">
+                        <div id="networkSwitchers">
+                            <p translate="FoundNetworkSwitchers" class="foundSwitchersLabel"></p>
+                            <div id="networkSwitchersList"></div>
+                            <template id="networkSwitcherTemplate">
+                                <div class="networkSwitcher"></div>
+                            </template>
+                        </div>
+                        <div>
+                            <label for="ipAddress" translate="IPAddress"></label>
+                            <input type="text" name="ipAddress" id="ipAddress" placeholder="192.168.1.100" required><br>
+                        </div>
                     </div>
                     <button id="connectToSwitcher" translate="Connect"></button>
                     <p id="switcherStatus" translate="NotConnected"></p>

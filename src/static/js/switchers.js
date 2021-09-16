@@ -33,12 +33,22 @@ function populateSwitcherConfiguration() {
   
   document.querySelector("#connectToSwitcher").setAttribute("switcherFolderName", switcherFolderName);
   document.querySelector("#connectToSwitcher").addEventListener("click", connect);
+
+  var switcherJS = getSwitcherFilePath(switcherFolderName, switcherConfiguration["jsFile"]);
+  ipcRenderer.send("switcherChosen", switcherJS);
+  if (switcherConfiguration["mdns"]) {
+    ipcRenderer.send("searchNetworkSwitchers");
+    document.querySelector("#networkSwitchersList").innerHTML = "";
+  } else {
+    document.querySelector("#networkSwitchers").style.display = "none";
+  }
 }
 
 /** Hide the switcher configuration, show the switcher list and eventually disconnect from the current switcher */
 function showSwitcherList() {
   document.querySelector("#switcherSelectionContainer").style.display = "";
   document.querySelector("#switcherConfigurationContainer").style.display = "none";
+  ipcRenderer.send("deleteSwitcher");
   disconnect();
 }
 
@@ -55,19 +65,22 @@ ipcRenderer.on("switcherTimeout", async (event) => {
 ipcRenderer.on("switcherDisconnected", async (event) => {
   switcherDisconnected();
 });
+ipcRenderer.on("updateNetworkSwitchers", async (event, switcherList) => {
+  updateNetworkSwitchers(switcherList);
+});
 
 /** Connect button clicked */
 function connect() {
+  ipcRenderer.send("stopSearchNetworkSwitchers");
   translateElement(document.querySelector("#switcherStatus"), "Connecting");
   document.querySelector("#ipAddress").disabled = true;
   document.querySelector("#connectToSwitcher").disabled = true;
+  document.querySelector("#networkSwitchers").style.pointerEvents = "none";
   document.querySelector("#connectToSwitcher").removeEventListener("click", connect);
+  document.querySelectorAll("#configurationContainer *").forEach((el) => el.style.color = "var(--buttonBackground)");
 
-  var switcherFolder = this.getAttribute("switcherFolderName");
-  var switcherInformation = getSwitcherInformation(switcherFolder);
-  var switcherJS = getSwitcherFilePath(switcherFolder, switcherInformation["jsFile"]);
   // Send a connect message to the main process, which will actually connect to the switcher
-  ipcRenderer.send("switcherConnect", switcherJS, document.querySelector("#ipAddress").value);
+  ipcRenderer.send("switcherConnect", document.querySelector("#ipAddress").value);
 }
 /** Disconnect button clicked */
 function disconnect() {
@@ -78,7 +91,10 @@ function switcherConnected() {
   translateElement(document.querySelector("#switcherStatus"), "Connected");
   translateElement(document.querySelector("#connectToSwitcher"), "Disconnect");
   document.querySelector("#connectToSwitcher").disabled = false;
+  document.querySelector("#connectToSwitcher").removeEventListener("click", connect);
   document.querySelector("#connectToSwitcher").addEventListener("click", disconnect);
+  document.querySelectorAll("#configurationContainer *").forEach((el) => el.style.color = "var(--buttonBackground)");
+  document.querySelector("#networkSwitchers").style.pointerEvents = "none";
 }
 /** Updates the list of sources in the switcher panel by deleting and recreating the divs */
 function updateSwitcherSources(switcherAllSources, switcherLivePreviewSources) {
@@ -105,6 +121,28 @@ function switcherDisconnected() {
   translateElement(document.querySelector("#connectToSwitcher"), "Connect");
   document.querySelector("#connectToSwitcher").removeEventListener("click", disconnect);
   document.querySelector("#connectToSwitcher").addEventListener("click", connect);
+  document.querySelector("#networkSwitchers").style.pointerEvents = "";
+  document.querySelectorAll("#configurationContainer *").forEach((el) => el.style.color = "");
+  if (document.querySelector("#switcherConfigurationContainer").style.display != "none" &&
+      document.querySelector("#networkSwitchersList").style.display != "none") {
+    ipcRenderer.send("searchNetworkSwitchers");
+  }
+}
+function updateNetworkSwitchers(switcherList) {
+  var selected = document.querySelector("[selectedNetworkSwitcher=true]");
+  if (selected) selected.getAttribute("ip");
+  document.querySelector("#networkSwitchersList").innerHTML = "";
+  switcherList.forEach(switcher => {
+    var clone = document.querySelector("#networkSwitcherTemplate").content.cloneNode(true);
+    clone.querySelector(".networkSwitcher").innerHTML = switcher["name"];
+    clone.querySelector(".networkSwitcher").setAttribute("ip", switcher["ip"]);
+    clone.querySelector(".networkSwitcher").addEventListener("click", networkSwitcherSelected);
+    document.querySelector("#networkSwitchersList").append(clone);
+  });
+}
+function networkSwitcherSelected() {
+  document.querySelector("#ipAddress").value = this.getAttribute("ip");
+  connect();
 }
 
 
