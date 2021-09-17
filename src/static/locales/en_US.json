@@ -26,5 +26,9 @@
     "KeepProgramOpen": "Don't stop/shutdown the computer during a live stream",
     "Language": "Language:",
     "Error": "Error",
+    "Close": "Close",
+    "KeepOpen": "Keep open",
+    "ConfirmCloseTitle": "Confirm exit",
+    "ConfirmClose": "If you close the program, tallies will stop working. Do you want to continue?",
     "FoundNetworkSwitchers": "Network switchers found:"
 }

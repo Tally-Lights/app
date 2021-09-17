@@ -2,7 +2,11 @@ ipcRenderer.on("tallyConfigurationCounterUpdate", async (event, number) => {
     tallyConfigurationCounterUpdate(number);
 });
 ipcRenderer.on("tallyConfigurationWriteSuccessfull", async (event) => {
-    console.log("Write successfull");
+    console.log("Write successful");
+    document.getElementById("updateTallyConfiguration").style.backgroundColor = "#015d00";
+    setTimeout(() => {
+        document.getElementById("updateTallyConfiguration").style.backgroundColor = "";
+    }, 2000);
 });
 
 /** Gets called when a tally gets connected via USB */

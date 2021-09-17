@@ -12,6 +12,7 @@ var switcherConnected = false;
 var tallyConfiguration;
 var translation;
 var tallyServer;
+var closeAccepted = false;
 
 process.traceProcessWarnings = true;
 
@@ -52,6 +53,24 @@ else {
         nativeWindowOpen: true
       },
       icon: path.resolve(__dirname, 'static/icons/512x512.png')
+    });
+
+    mainWindow.on('close', (e) => {
+      if (!closeAccepted) e.preventDefault();
+      dialog.showMessageBox(
+        mainWindow,
+        {
+          type: 'question',
+          buttons: [translation.translate("Close"), translation.translate("KeepOpen")],
+          title: translation.translate("ConfirmCloseTitle"),
+          message: translation.translate("ConfirmClose")
+        }
+      ).then((choice) => {
+        if (choice.response == 0) {
+          closeAccepted = true;
+          app.quit();
+        }
+      });
     });
 
     if (app.isPackaged) {

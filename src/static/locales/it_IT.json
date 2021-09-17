@@ -26,5 +26,9 @@
     "KeepProgramOpen": "Non mettere in stop/spegnere il computer durante la diretta",
     "Language": "Lingua:",
     "Error": "Errore",
+    "Close": "Chiudi",
+    "KeepOpen": "Tieni aperto",
+    "ConfirmCloseTitle": "Conferma chiusura",
+    "ConfirmClose": "Chiudendo il programma i tally smetteranno di funzionare, sei sicuro?",
     "FoundNetworkSwitchers": "Switcher trovati in rete:"
 }
