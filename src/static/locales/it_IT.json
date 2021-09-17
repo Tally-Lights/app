@@ -6,8 +6,8 @@
     "IPAddress": "Indirizzo IP: ",
     "Connect": "Connetti",
     "Disconnect": "Disconnetti",
-    "Connected": "Connesso",
-    "NotConnected": "Non connesso",
+    "Connected": "Stato: connesso",
+    "NotConnected": "Stato: non connesso",
     "TallyConfiguration": "Configurazione tally",
     "WiFiName": "Nome rete WiFi: ",
     "YourWiFiName": "Nome rete WiFi",
@@ -29,5 +29,6 @@
     "Close": "Chiudi",
     "KeepOpen": "Tieni aperto",
     "ConfirmCloseTitle": "Conferma chiusura",
-    "ConfirmClose": "La diretta è ancora attiva, vuoi davvero chiudere l'applicazione?"
+    "ConfirmClose": "Chiudendo il programma i tally smetteranno di funzionare, sei sicuro?",
+    "FoundNetworkSwitchers": "Switcher trovati in rete:"
 }

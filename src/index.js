@@ -147,16 +147,26 @@ else {
   });
 
   /** SWITCHER **/
+  ipcMain.on('switcherChosen', async (event, switcherJS) => {
+    Switcher = require(switcherJS);
+    switcher = new Switcher();
+    switcher.on("updateNetworkSwitchers", (switcherList) => {
+      event.sender.send("updateNetworkSwitchers", switcherList);
+    });
+  });
+  ipcMain.on("searchNetworkSwitchers", async () => {
+    switcher.searchNetworkSwitchers();
+  });
+  ipcMain.on("stopSearchNetworkSwitchers", async () => {
+    switcher.stopSearchNetworkSwitchers();
+  });
   /** Gets called when the renderer wants to connect to the switcher
    * @param switcherJS Path to node module for that switcher
    * @param ipAddress IP address of the switcher
    */
-  ipcMain.on('switcherConnect', async (event, switcherJS, ipAddress) => {
-    Switcher = require(switcherJS);
-    switcher = new Switcher();
-
+  ipcMain.on('switcherConnect', async (event, ipAddress) => {
     // Handle possible switcher states
-    switcher.once('switcherConnected', () => {
+    switcher.on('switcherConnected', () => {
       switcherConnected = true;
       var switcherAllSources = switcher.getAllSources();
       var switcherLivePreviewSources = switcher.getLivePreviewSources();
@@ -168,16 +178,13 @@ else {
       event.sender.send("switcherConnected");
       event.sender.send("switcherSourcesUpdated", switcherAllSources, switcherLivePreviewSources);
     });
-    switcher.once('switcherDisconnected', (disconnectCause) => {
+    switcher.on('switcherDisconnected', (disconnectCause) => {
       switcherConnected = false;
       // Make tallies know about the current switcher state
       tallyServer.sendSwitcherUpdate(0, { live: [], preview: [] });
       event.sender.send("switcherSourcesUpdated", [], { live: [], preview: [] });
       event.sender.send("switcherDisconnected");
       if (disconnectCause == "timeout") event.sender.send("switcherTimeout");
-      switcher.removeAllListeners();
-      Switcher = undefined;
-      switcher = undefined;
     });
     switcher.on('switcherStateChanged', (switcherData) => {
       console.log(switcherData);
@@ -194,6 +201,14 @@ else {
     // Check if we are actually connected to the switcher before disconnecting
     if (switcher != undefined) {
       switcher.disconnect();
+    }
+  });
+  ipcMain.on('deleteSwitcher', async (event) => {
+    if (switcher != undefined) {
+      switcher.destroy();
+      switcher.removeAllListeners();
+      Switcher = undefined;
+      switcher = undefined;
     }
   });
 

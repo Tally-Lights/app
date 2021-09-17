@@ -141,6 +141,9 @@ section:last-of-type {
     margin-bottom: 15px;
     height: 100px;
 }
+#configurationContainer {
+    transition: 0.2s color linear;
+}
 #switcherInputs {
     display: flex;
     flex-direction: row;
@@ -164,6 +167,29 @@ div .previewSource {
 .liveSource.previewSource {
     color: var(--preview);
     background-color: var(--live);
+}
+#networkSwitchers {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.foundSwitchersLabel {
+    margin: 5px 0;
+}
+#networkSwitchersList {
+    width: 200px;
+    margin: 0 auto;
+}
+.networkSwitcher {
+    cursor: pointer;
+    transition: 0.2s all linear;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.networkSwitcher:hover {
+    background-color: var(--buttonBackgroundHover);
 }
 
 /** TALLIES **/

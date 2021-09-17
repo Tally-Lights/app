@@ -6,8 +6,8 @@
     "IPAddress": "IP address: ",
     "Connect": "Connect",
     "Disconnect": "Disconnect",
-    "Connected": "Connected",
-    "NotConnected": "Not connected",
+    "Connected": "Status: connected",
+    "NotConnected": "Status: not connected",
     "TallyConfiguration": "Tally configuration",
     "WiFiName": "WiFi name: ",
     "YourWiFiName": "WiFi name",
@@ -29,5 +29,6 @@
     "Close": "Close",
     "KeepOpen": "Keep open",
     "ConfirmCloseTitle": "Confirm exit",
-    "ConfirmClose": "Live broadcasting is still active, do you want to close this application?"
+    "ConfirmClose": "If you close the program, tallies will stop working. Do you want to continue?",
+    "FoundNetworkSwitchers": "Network switchers found:"
 }
