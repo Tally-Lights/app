@@ -12,7 +12,6 @@ var switcherConnected = false;
 var tallyConfiguration;
 var translation;
 var tallyServer;
-var closeAccepted = false;
 
 process.traceProcessWarnings = true;
 
@@ -56,21 +55,22 @@ else {
     });
 
     mainWindow.on('close', (e) => {
-      if (!closeAccepted) e.preventDefault();
-      dialog.showMessageBox(
-        mainWindow,
-        {
-          type: 'question',
-          buttons: [translation.translate("Close"), translation.translate("KeepOpen")],
-          title: translation.translate("ConfirmCloseTitle"),
-          message: translation.translate("ConfirmClose")
-        }
-      ).then((choice) => {
-        if (choice.response == 0) {
-          closeAccepted = true;
-          app.quit();
-        }
-      });
+      if (switcherConnected) {
+        e.preventDefault();
+        dialog.showMessageBox(
+          mainWindow,
+          {
+            type: 'question',
+            buttons: [translation.translate("Close"), translation.translate("KeepOpen")],
+            title: translation.translate("ConfirmCloseTitle"),
+            message: translation.translate("ConfirmClose")
+          }
+        ).then((choice) => {
+          if (choice.response == 0) {
+            app.quit();
+          }
+        });
+      }
     });
 
     if (app.isPackaged) {
@@ -85,8 +85,8 @@ else {
       tallyConfiguration.on("tallyConfigurationCounterUpdate", (connectedTallyCounter) => {
         mainWindow.webContents.send("tallyConfigurationCounterUpdate", connectedTallyCounter);
       });
-      tallyConfiguration.on("tallyConfigurationWriteSuccessfull", () => {
-        mainWindow.webContents.send("tallyConfigurationWriteSuccessfull");
+      tallyConfiguration.on("tallyConfigurationWriteSuccessful", () => {
+        mainWindow.webContents.send("tallyConfigurationWriteSuccessful");
       });
       tallyConfiguration.updateTallyCounter();
 

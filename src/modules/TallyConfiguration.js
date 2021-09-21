@@ -40,13 +40,12 @@ class TallyConfiguration extends EventEmitter.EventEmitter {
                     });
                     console.log(wifiSSID + "+" + wifiPassword + "\n");
                     tallyConnection.write("wifiConfiguration " + wifiSSID + "+" + wifiPassword + "\n", "utf8", () => {
-                        console.log("Write successfull");
                         tallyConnection.close();
                         writeFinished();
                     });
                 });
             });
-            this.emit("tallyConfigurationWriteSuccessfull");
+            this.emit("tallyConfigurationWriteSuccessful");
         });
     }
 }
